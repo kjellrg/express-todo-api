@@ -5,9 +5,6 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const app = express();
 
-// node listen port
-var port = 3000;
-
 // mongoDB server
 var MONGODB_URL = `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@${process.env.MONGODB_SERVER}`;
 mongoose
