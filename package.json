@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest run --coverage",
     "lint": "eslint --ext .js .",
     "dev": "nodemon main.js"
   },
@@ -26,8 +26,11 @@
     "mongoose": "^6.4.4"
   },
   "devDependencies": {
+    "c8": "^7.11.3",
     "eslint": "^8.19.0",
     "nodemon": "^2.0.19",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "supertest": "^6.2.4",
+    "vitest": "^0.18.0"
   }
 }
