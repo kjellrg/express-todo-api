@@ -46,4 +46,22 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
+router.patch("/:id", async (req, res) => {
+  try {
+    const changeTodo = await TodoList.updateOne(
+      { _id: req.params.id },
+      { $set: req.body },
+      {
+        runValidators: true,
+      }
+    );
+
+    if (changeTodo.acknowledged === true && changeTodo.matchedCount === 0)
+      return res.status(404).json({ message: `${req.params.id} not found` });
+    res.status(200).json(changeTodo);
+  } catch (e) {
+    res.status(400).json({ message: e.message });
+  }
+});
+
 module.exports = router;
