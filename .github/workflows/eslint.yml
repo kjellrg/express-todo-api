@@ -45,3 +45,24 @@ jobs:
         with:
           sarif_file: eslint-results.sarif
           wait-for-processing: true
+
+  vitest:
+    name: Run vitest scanning
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3    
+
+      - name: Install VITest
+        run: |
+          npm install vitest
+      
+      - name: Run vitest
+        env:
+          MONGODB_SERVER: ${{ secrets.MONGODB_SERVER }}
+          MONGODB_USER: ${{ secrets.MONGODB_USER }}
+          MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
+        run: npm test
