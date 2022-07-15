@@ -45,3 +45,21 @@ jobs:
         with:
           sarif_file: eslint-results.sarif
           wait-for-processing: true
+  
+  vitest:
+    name: Run vitest scanning
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3    
+                
+      - name: Install VITest
+        run: |
+          npm install vitest
+      
+      - name: Run vitest
+        run: npm test
+        
