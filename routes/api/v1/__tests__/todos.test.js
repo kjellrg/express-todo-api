@@ -1,4 +1,4 @@
-import { beforeAll, afterAll, describe, expect, it } from "vitest";
+import { afterAll, describe, expect, it } from "vitest";
 import app from "../../../../app";
 
 const request = require("supertest");
